@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://btwj76kbf6yuw"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_g2g3l"]
+[ext_resource type="Texture2D" uid="uid://dj734i8ocoab3" path="res://player.png" id="2_kikxd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p5q1"]
+size = Vector2(8, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5gopc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kikxd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_g2g3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7p5q1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5gopc")
+
+[node name="Camera2D" type="Camera2D" parent="."]

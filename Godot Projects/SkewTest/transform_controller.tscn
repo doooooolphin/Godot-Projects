@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgkayg3arvj7r"]
+
+[ext_resource type="Script" path="res://transform_controller.gd" id="1_3m7hu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8phfn"]
+size = Vector2(98, 99)
+
+[node name="TransformController" type="Node2D"]
+script = ExtResource("1_3m7hu")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-50, -50)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(51, 50.5)
+shape = SubResource("RectangleShape2D_8phfn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.211765)
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://5uh04l3857aw"]
+
+[ext_resource type="Texture2D" uid="uid://bb6a7l2wv8oer" path="res://icon.svg" id="1_5h380"]
+[ext_resource type="Script" path="res://slide_block.gd" id="1_engks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56ooi"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lh4xh"]
+size = Vector2(144, 144)
+
+[node name="SlideBlock" type="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_engks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_56ooi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5h380")
+
+[node name="EndPos" type="Marker2D" parent="."]
+gizmo_extents = 20.0
+
+[node name="PlayerArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+shape = SubResource("RectangleShape2D_lh4xh")
+
+[connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]
+[connection signal="body_exited" from="PlayerArea" to="." method="_on_player_area_body_exited"]

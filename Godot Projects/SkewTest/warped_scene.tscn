@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwy34vky1ow04"]
+
+[ext_resource type="Script" path="res://warped_scene.gd" id="1_ahjht"]
+[ext_resource type="PackedScene" uid="uid://bijj6s6mg443g" path="res://level_tiles.tscn" id="3_eiiq7"]
+[ext_resource type="PackedScene" uid="uid://bxob55laqpln7" path="res://player.tscn" id="3_uqsps"]
+[ext_resource type="PackedScene" uid="uid://cgkayg3arvj7r" path="res://transform_controller.tscn" id="4_ki63k"]
+
+[node name="WarpedScene" type="Node2D"]
+script = ExtResource("1_ahjht")
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = -212.0
+offset_top = -268.0
+offset_right = 161.0
+offset_bottom = -156.0
+
+[node name="Player" parent="." instance=ExtResource("3_uqsps")]
+position = Vector2(9, -34)
+
+[node name="LevelTiles" parent="." instance=ExtResource("3_eiiq7")]
+layer_0/tile_data = PackedInt32Array(65530, 131072, 2, 65531, 131072, 1, 65532, 131072, 1, 65533, 131072, 1, 65534, 131072, 1, 65535, 131072, 1, 0, 131072, 1, 1, 131072, 1, 2, 131072, 1, 3, 131072, 1, 4, 131072, 2, 65540, 131072, 2, 65541, 131072, 2, 65542, 131072, 2, 5, 131072, 1, 6, 131072, 1, 65539, 131072, 2, 65538, 131072, 2, 65537, 131072, 2, 65536, 131072, 2, 131071, 131072, 2, 131070, 131072, 2, 131069, 131072, 2, 131068, 131072, 2, 131067, 131072, 2, 131066, 131072, 2, -131068, 0, 1, -65532, 0, 2, -131080, 65536, 1, -131079, 131072, 1, -131078, 196608, 1, -65544, 65536, 2, -65543, 131072, 2, -65542, 196608, 2, -8, 65536, 2, -7, 131072, 2, -6, 196608, 2, 131065, 131072, 2, 131064, 131072, 2, 65528, 131072, 2, 65529, 131072, 2)
+
+[node name="TransformController" parent="." instance=ExtResource("4_ki63k")]
+position = Vector2(-289, -36)
+min_x = Vector2(-0.4, -0.2)
+max_x = Vector2(1.6, 0.7)
+min_y = Vector2(-1, 1.2)
+max_y = Vector2(1, 0.8)
+t = 0.5

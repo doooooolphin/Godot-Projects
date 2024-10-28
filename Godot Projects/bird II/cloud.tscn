@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwsiyifgfc76m"]
+
+[ext_resource type="Texture2D" uid="uid://lq68v8r11cca" path="res://cloud.png" id="1_8l2uu"]
+[ext_resource type="Script" path="res://cloud.gd" id="1_qinok"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iajt5"]
+radius = 50.0
+
+[node name="Cloud" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_qinok")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.416667, 0.816326)
+texture = ExtResource("1_8l2uu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_iajt5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

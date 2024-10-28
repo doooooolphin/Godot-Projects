@@ -1,0 +1,160 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0fc4xdtnfsoc"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_7gj3p"]
+[ext_resource type="Texture2D" uid="uid://ch03tup3vyg1j" path="res://images/icon.svg" id="2_cuh65"]
+[ext_resource type="Texture2D" uid="uid://g0b51juquo4f" path="res://images/walltiles.png" id="4_f1xdt"]
+[ext_resource type="Texture2D" uid="uid://2ewnhoa3rub5" path="res://images/walltilesX4.png" id="6_wyo3b"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xg1cm"]
+texture = ExtResource("2_cuh65")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0lb50"]
+texture = ExtResource("6_wyo3b")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xgqw0"]
+texture = ExtResource("4_f1xdt")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:4/0 = 0
+4:4/0/custom_data_0 = true
+4:5/0 = 0
+4:5/0/custom_data_0 = true
+4:6/0 = 0
+4:6/0/custom_data_0 = true
+5:4/0 = 0
+5:4/0/custom_data_0 = true
+6:4/0 = 0
+6:4/0/custom_data_0 = true
+6:5/0 = 0
+6:5/0/custom_data_0 = true
+6:6/0 = 0
+6:6/0/custom_data_0 = true
+5:6/0 = 0
+5:6/0/custom_data_0 = true
+
+[sub_resource type="TileSet" id="TileSet_q8y1s"]
+custom_data_layer_0/name = "nightmare"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_xg1cm")
+sources/4 = SubResource("TileSetAtlasSource_0lb50")
+sources/5 = SubResource("TileSetAtlasSource_xgqw0")
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_7gj3p")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(1, 1, 1, 0.631373)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = 1
+tile_set = SubResource("TileSet_q8y1s")
+
+[connection signal="ready" from="TileMapLayer" to="." method="_on_tile_map_layer_ready"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=4 uid="uid://ct2rg538x5sqn"]
+
+[ext_resource type="PackedScene" uid="uid://d0fc4xdtnfsoc" path="res://scenes/level.tscn" id="1_mxnrl"]
+[ext_resource type="PackedScene" uid="uid://ly01r2srreip" path="res://scenes/level_objects/player.tscn" id="2_ramrb"]
+[ext_resource type="PackedScene" uid="uid://1ngylm6f12fd" path="res://scenes/level_objects/Box.tscn" id="3_ig2sr"]
+[ext_resource type="PackedScene" uid="uid://bui7dtg6xcocq" path="res://scenes/level_objects/level_exit.tscn" id="4_vfpyb"]
+
+[node name="Level" instance=ExtResource("1_mxnrl")]
+
+[node name="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAAAAAAABQAAAAIAAAAAAAEABQAAAAIAAAAAAAIABQAAAAIAAAAAAAMABQAAAAIAAAAAAAQABQAAAAIAAAABAAAABQAAAAIAAAACAAAABQAAAAIAAAADAAAABQAAAAIAAAAEAAAABQAAAAIAAAAFAAAABQAAAAIAAAAGAAAABQAAAAIAAAAHAAAABQAAAAIAAAAAAAUABQAAAAIAAAABAAUABQAAAAIAAAACAAUABQAAAAIAAAADAAUABQAAAAIAAAAEAAUABQAAAAIAAAADAAMABQAAAAIAAAADAAIABQAAAAIAAAAHAAEABQAAAAIAAAAHAAIABQAAAAIAAAAHAAMABQAAAAIAAAAHAAQABQAAAAIAAAAHAAUABQAAAAIAAAAGAAUABQAAAAIAAAAFAAUABQAAAAIAAAA=")
+
+[node name="Player" parent="." index="3" instance=ExtResource("2_ramrb")]
+position = Vector2(24, 56)
+
+[node name="Box" parent="." index="4" instance=ExtResource("3_ig2sr")]
+position = Vector2(56, 24)
+
+[node name="Box2" parent="." index="5" instance=ExtResource("3_ig2sr")]
+position = Vector2(72, 24)
+
+[node name="Box3" parent="." index="6" instance=ExtResource("3_ig2sr")]
+position = Vector2(88, 56)
+
+[node name="LevelExit" parent="." index="7" instance=ExtResource("4_vfpyb")]
+position = Vector2(104, 72)

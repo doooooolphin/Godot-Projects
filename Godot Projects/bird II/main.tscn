@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx1fgbs6pj8j8"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_load7"]
+[ext_resource type="PackedScene" uid="uid://ciomqlfd1iy2s" path="res://level_1.tscn" id="1_u1cvx"]
+[ext_resource type="PackedScene" uid="uid://c1asewl66baao" path="res://cliff_level.tscn" id="2_an1vs"]
+[ext_resource type="PackedScene" uid="uid://cv2ejxan0v7hp" path="res://level_glide.tscn" id="4_b4hf8"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("selected_level")]
+script = ExtResource("1_load7")
+selected_level = NodePath("LevelGlide")
+
+[node name="CliffLevel" parent="." instance=ExtResource("2_an1vs")]
+
+[node name="Level1" parent="." instance=ExtResource("1_u1cvx")]
+
+[node name="LevelGlide" parent="." instance=ExtResource("4_b4hf8")]

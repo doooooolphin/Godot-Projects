@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ernbf1vee1ss"]
+
+[ext_resource type="Script" path="res://miscellaneous_object.gd" id="1_iia4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1e0j3"]
+size = Vector2(100, 100)
+
+[node name="MiscellaneousObject" type="Sprite2D"]
+script = ExtResource("1_iia4i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_1e0j3")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlkefylm7454"]
+
+[ext_resource type="PackedScene" uid="uid://6soeydle8efr" path="res://map.tscn" id="1_uydhl"]
+[ext_resource type="PackedScene" uid="uid://tf4c2rhcl723" path="res://upgrade_tree.tscn" id="2_ihn3t"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_uydhl")]
+
+[node name="UpgradeTree" parent="." instance=ExtResource("2_ihn3t")]
+position = Vector2(457, 646)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ngylm6f12fd"]
+
+[ext_resource type="PackedScene" uid="uid://cg6i1ob3dnskf" path="res://scenes/level_object.tscn" id="1_8vjud"]
+
+[node name="Box" instance=ExtResource("1_8vjud")]
+pushable = true
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.900945, 0.50616, 0.512074, 1)

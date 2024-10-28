@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8t7ej3pigkvo"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_f2kee"]
+[ext_resource type="PackedScene" uid="uid://cwy34vky1ow04" path="res://warped_scene.tscn" id="2_dslvr"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_f2kee")
+
+[node name="WarpedScene" parent="." instance=ExtResource("2_dslvr")]
+position = Vector2(478, 343)

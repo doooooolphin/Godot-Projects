@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=4 uid="uid://c81u3mfv5gcrn"]
+
+[ext_resource type="PackedScene" uid="uid://d0fc4xdtnfsoc" path="res://scenes/level.tscn" id="1_ihcum"]
+[ext_resource type="PackedScene" uid="uid://ly01r2srreip" path="res://scenes/level_objects/player.tscn" id="2_swb6u"]
+[ext_resource type="PackedScene" uid="uid://bui7dtg6xcocq" path="res://scenes/level_objects/level_exit.tscn" id="3_gxv1s"]
+[ext_resource type="FontFile" uid="uid://vjm5go0tkwnd" path="res://Pixels.ttf" id="4_qbu6x"]
+
+[node name="Level" instance=ExtResource("1_ihcum")]
+
+[node name="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAAAAAAABQAEAAQAAAAAAAEABQAEAAUAAAAAAAIABQAEAAYAAAABAAAABQAFAAQAAAABAAIABQAFAAYAAAACAAAABQAGAAQAAAACAAIABQAGAAYAAAACAAEABQAAAAAAAAA=")
+
+[node name="Player" parent="." index="3" instance=ExtResource("2_swb6u")]
+position = Vector2(24, 24)
+
+[node name="Label" type="Label" parent="." index="4"]
+offset_left = 56.0
+offset_top = 69.0
+offset_right = 200.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_qbu6x")
+text = "Hello guy, this is some real important dialogue here better not ignore it. oh yeah, this is actually a level have fun hehaha."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LevelExit" parent="." index="5" instance=ExtResource("3_gxv1s")]
+position = Vector2(136, 136)
+
+[node name="Player2" parent="." index="6" instance=ExtResource("2_swb6u")]
+position = Vector2(120, 136)

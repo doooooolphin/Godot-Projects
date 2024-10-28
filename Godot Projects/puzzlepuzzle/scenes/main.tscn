@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpjfaarxkfvc8"]
+
+[ext_resource type="PackedScene" uid="uid://cxsh4jod55nk3" path="res://scenes/levels/overworld.tscn" id="1_tep8n"]
+[ext_resource type="Texture2D" uid="uid://c16ng86l52rhw" path="res://images/temp_background.png" id="2_plle2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(32, 32)
+repeat_times = 200
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("2_plle2")
+
+[node name="Level" parent="." instance=ExtResource("1_tep8n")]

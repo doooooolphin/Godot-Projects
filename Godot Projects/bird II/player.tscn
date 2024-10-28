@@ -1,0 +1,147 @@
+[gd_scene load_steps=17 format=3 uid="uid://da51joa2cwmdm"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_6wx52"]
+[ext_resource type="Texture2D" uid="uid://ewre548r3pl5" path="res://bar_bottom.png" id="2_atwkl"]
+[ext_resource type="Texture2D" uid="uid://bctih8dltm2ve" path="res://player.png" id="3_50e8l"]
+[ext_resource type="Texture2D" uid="uid://buho886m4oka1" path="res://bar_top.png" id="3_ieo3o"]
+[ext_resource type="PackedScene" uid="uid://cwt3bxxr4j5i3" path="res://cave_background.tscn" id="5_7fvy4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76yji"]
+atlas = ExtResource("3_50e8l")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc1gt"]
+atlas = ExtResource("3_50e8l")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpsmn"]
+atlas = ExtResource("3_50e8l")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2sdq"]
+atlas = ExtResource("3_50e8l")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpku5"]
+atlas = ExtResource("3_50e8l")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jlym"]
+atlas = ExtResource("3_50e8l")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo4ww"]
+atlas = ExtResource("3_50e8l")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvk0x"]
+atlas = ExtResource("3_50e8l")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bj18a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76yji")
+}],
+"loop": true,
+"name": &"air fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc1gt")
+}],
+"loop": true,
+"name": &"air rise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpsmn")
+}],
+"loop": true,
+"name": &"glide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2sdq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpku5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jlym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo4ww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvk0x")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01tsw"]
+size = Vector2(28, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jdy7"]
+size = Vector2(22, 22)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_6wx52")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.265625, 0.265625)
+sprite_frames = SubResource("SpriteFrames_bj18a")
+animation = &"air rise"
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_01tsw")
+
+[node name="Camera" type="Camera2D" parent="."]
+ignore_rotation = false
+
+[node name="Stamina" type="TextureProgressBar" parent="Camera"]
+offset_left = -558.0
+offset_top = 254.0
+offset_right = -358.0
+offset_bottom = 304.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+texture_under = ExtResource("2_atwkl")
+texture_progress = ExtResource("3_ieo3o")
+
+[node name="CaveBackground" parent="Camera" instance=ExtResource("5_7fvy4")]
+
+[node name="DeathCheck" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathCheck"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_8jdy7")
+debug_color = Color(0.768627, 0, 0.223529, 0.419608)
+
+[node name="ShuffleTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="Hook" type="RayCast2D" parent="."]
+target_position = Vector2(2.08165e-12, 2.08165e-12)
+collision_mask = 2
+collide_with_areas = true
+
+[connection signal="area_entered" from="DeathCheck" to="." method="_on_death_area_entered"]
+[connection signal="body_entered" from="DeathCheck" to="." method="_on_death_check_body_entered"]
+[connection signal="timeout" from="ShuffleTimer" to="." method="_on_shuffle_timer_timeout"]

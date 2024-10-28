@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://1ehdf55bjlcm"]
+
+[ext_resource type="Script" path="res://spirit.gd" id="1_uwrqk"]
+[ext_resource type="Texture2D" uid="uid://b00ygqwqjxymk" path="res://PrincessTwilightSparkle.png" id="2_37h0i"]
+
+[node name="Spirit" type="PathFollow2D"]
+loop = false
+script = ExtResource("1_uwrqk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.242038, 0.242038)
+texture = ExtResource("2_37h0i")

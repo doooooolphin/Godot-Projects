@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://f77xr57acyu0"]
+
+[node name="TestLayout" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(59, -290, 293, -285, 285, -188, 350, -177, 322, 218, -49, 223, -73, 176, -115, 142, -103, 83, -81, 52, -37, 156, 165, 160, 156, 90, 259, 70, 247, -66, 2, -9, -208, -54, -299, -170, -228, -244, -249, -288, -139, -287, -135, -199, -203, -192, -206, -139, 69, -143)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-74, 0)
+offset = Vector2(-30, 0)
+polygon = PackedVector2Array(-143, -287, -32, -287, -30, -198, -97, -192, -101, -140, 171, -142, 165, -292, 396, -285, 388, -188, 456, -177, 426, 218, 57, 223, 34, 175, -9, 140, 4, 82, 22, 56, 69, 155, 268, 161, 259, 92, 363, 72, 354, -67, 92, -9, -103, -55, -194, -169, -124, -244)

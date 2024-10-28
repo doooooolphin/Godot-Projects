@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://67epeyvmoixn"]
+
+[ext_resource type="Texture2D" uid="uid://bb6a7l2wv8oer" path="res://icon.svg" id="1_2ab5b"]
+[ext_resource type="Script" path="res://lock.gd" id="1_bsofx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nldyn"]
+size = Vector2(128, 128)
+
+[node name="Lock" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_bsofx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nldyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2ab5b")

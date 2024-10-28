@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgexmwpcs4eeb"]
+
+[ext_resource type="Script" path="res://upgrade.gd" id="1_drvis"]
+
+[node name="Upgrade" type="Node2D"]
+script = ExtResource("1_drvis")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0

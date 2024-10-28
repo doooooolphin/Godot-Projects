@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://tf4c2rhcl723"]
+
+[ext_resource type="PackedScene" uid="uid://cgexmwpcs4eeb" path="res://upgrade.tscn" id="1_djv7x"]
+
+[node name="UpgradeTree" type="Node2D"]
+
+[node name="Seed" parent="." instance=ExtResource("1_djv7x")]
+description = "Any tree has to start somewhere"
+is_root = true
+
+[node name="First Steps" parent="Seed" instance=ExtResource("1_djv7x")]
+position = Vector2(0, -85)
+description = "The tree can now shoot projectiles"
+projectile_count = 1
+
+[node name="Damage I" parent="Seed/First Steps" instance=ExtResource("1_djv7x")]
+position = Vector2(-108, -14)
+description = "Grants the tree a small damage increase"
+bark_bounds = [4, -1]
+bark = 1
+damage = 4
+
+[node name="Upgrade" parent="Seed/First Steps/Damage I" instance=ExtResource("1_djv7x")]
+position = Vector2(-4, -81)
+description = "Grants the tree a small damage increase. Has extreme effects on the tree."
+roots_bounds = [-1, 30]
+bark = 4
+roots = -2
+
+[node name="Pierce I" parent="Seed/First Steps/Damage I" instance=ExtResource("1_djv7x")]
+position = Vector2(-105, -31)
+description = "This tree's projectiles can pierce 1 additional target"
+moss_bounds = [9, -1]
+moss = 1
+pierce = 1
+
+[node name="Rebound I" parent="Seed/First Steps/Damage I/Pierce I" instance=ExtResource("1_djv7x")]
+position = Vector2(-48, -85)
+description = "This tree's projectiles can can bouce between 1 additional target"
+moss_bounds = [10, -1]
+moss = 1
+branches = -1
+rebounds = 1

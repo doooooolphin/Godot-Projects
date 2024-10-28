@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://6soeydle8efr"]
+
+[ext_resource type="PackedScene" uid="uid://1ehdf55bjlcm" path="res://spirit.tscn" id="1_2mxsg"]
+[ext_resource type="Script" path="res://map.gd" id="1_l4ub4"]
+[ext_resource type="PackedScene" uid="uid://cigjfk4c2t2y" path="res://tree.tscn" id="3_40f8v"]
+
+[sub_resource type="Curve2D" id="Curve2D_uf32p"]
+bake_interval = 100.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -27, 270, 0, 0, 0, 0, 427, 172, 0, 0, 0, 0, 657, 160, 0, 0, 0, 0, 733, 284, 0, 0, 0, 0, 591, 427, 0, 0, 0, 0, 395, 335, 0, 0, 0, 0, 310, 281, 0, 0, 0, 0, 217, 405, 0, 0, 0, 0, 316, 559, 0, 0, 0, 0, 875, 662, 0, 0, 0, 0, 1285, 884, 0, 0, 0, 0, 2067, 892)
+}
+point_count = 12
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_l4ub4")
+
+[node name="Tree" parent="." instance=ExtResource("3_40f8v")]
+position = Vector2(555, 268)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_uf32p")
+
+[node name="Spirit" parent="Path2D" instance=ExtResource("1_2mxsg")]
+position = Vector2(-27, 270)
+rotation = -0.212597

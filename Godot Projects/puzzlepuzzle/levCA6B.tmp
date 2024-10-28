@@ -1,0 +1,37 @@
+[gd_scene load_steps=10 format=4 uid="uid://d0fc4xdtnfsoc"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_7gj3p"]
+[ext_resource type="PackedScene" uid="uid://cg6i1ob3dnskf" path="res://level_object.tscn" id="2_6fxqf"]
+[ext_resource type="Texture2D" uid="uid://ch03tup3vyg1j" path="res://icon.svg" id="2_cuh65"]
+[ext_resource type="PackedScene" uid="uid://ly01r2srreip" path="res://player.tscn" id="4_0oduj"]
+[ext_resource type="PackedScene" uid="uid://1ngylm6f12fd" path="res://Box.tscn" id="5_61kf4"]
+[ext_resource type="PackedScene" uid="uid://4kpko7pk7c6v" path="res://level_enter.tscn" id="6_113x6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xg1cm"]
+texture = ExtResource("2_cuh65")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_grl06"]
+scenes/1/scene = ExtResource("2_6fxqf")
+scenes/2/scene = ExtResource("4_0oduj")
+scenes/3/scene = ExtResource("5_61kf4")
+
+[sub_resource type="TileSet" id="TileSet_q8y1s"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_xg1cm")
+sources/1 = SubResource("TileSetScenesCollectionSource_grl06")
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_7gj3p")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAYAAAAAAAEAAAABAAYAAAAAAAEAAAACAAYAAAAAAAEAAAADAAYAAAAAAAEAAAAEAAYAAAAAAAEAAAAFAAYAAAABAAEAAAAHAAYAAAABAAEAAAAIAAYAAAABAAEAAAAIAAUAAAABAAEAAAAIAAQAAAABAAEAAAAIAAMAAAABAAAAAAAIAAIAAAABAAAAAAAIAAEAAAABAAAAAAAIAAAAAAABAAAAAAACAAIAAQAAAAAAAQAFAAIAAQAAAAAAAgACAAQAAQAAAAAAAwADAAQAAQAAAAAAAwAEAAQAAQAAAAAAAwA=")
+tile_set = SubResource("TileSet_q8y1s")
+
+[node name="LevelObject" parent="." instance=ExtResource("6_113x6")]
+position = Vector2(480, 224)
+level_path = "res://level.tscn"
